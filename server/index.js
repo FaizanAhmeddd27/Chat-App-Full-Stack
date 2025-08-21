@@ -29,6 +29,12 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use("/api/user", userRoute);
 app.use("/api/message", messageRoute);
 
+app.get('/', (req,res) => {
+  res.send({
+    activeStatus: true,
+    error: false
+  })
+})
 // Start server
 server.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);
